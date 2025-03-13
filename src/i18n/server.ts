@@ -1,8 +1,5 @@
-'use client';
-
-import i18n from 'i18next';
+import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { locales, defaultLocale } from './request';
 
 // 导入所有语言文件
@@ -22,24 +19,21 @@ const resources = {
   ru: { translation: ru }
 };
 
-// 避免在服务器端初始化
-if (typeof window !== 'undefined' && !i18n.isInitialized) {
-  i18n
-    .use(LanguageDetector)
+const initI18next = async (locale: string = defaultLocale) => {
+  const i18nInstance = createInstance();
+  await i18nInstance
     .use(initReactI18next)
     .init({
       resources,
+      lng: locale,
       fallbackLng: defaultLocale,
       supportedLngs: locales,
       interpolation: {
         escapeValue: false
-      },
-      detection: {
-        order: ['path', 'htmlTag', 'cookie', 'localStorage', 'navigator'],
-        caches: ['cookie', 'localStorage'],
-        lookupFromPathIndex: 0
       }
     });
-}
 
-export default i18n; 
+  return i18nInstance;
+};
+
+export default initI18next; 

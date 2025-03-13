@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, Suspense } from 'react';
 import Image from 'next/image';
 import LandingPage from './components/LandingPage';
 import { useTranslation } from 'react-i18next';
@@ -204,8 +204,10 @@ function HomePage() {
 
 export default function Page() {
   return (
-    <I18nProvider>
-      <HomePage />
-    </I18nProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <I18nProvider>
+        <HomePage />
+      </I18nProvider>
+    </Suspense>
   );
 }

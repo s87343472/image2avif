@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- 主页 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 英文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/en</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 中文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/zh</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 日文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/ja</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 法文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/fr</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 德文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/de</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+  </url>
+
+  <!-- 俄文版 -->
+  <url>
+    <loc>https://image2avif.metric-converter.com/ru</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://image2avif.metric-converter.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://image2avif.metric-converter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://image2avif.metric-converter.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://image2avif.metric-converter.com/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://image2avif.metric-converter.com/ja"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://image2avif.metric-converter.com/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://image2avif.metric-converter.com/de"/>
+  </url>
+</urlset> 

@@ -1,103 +1,211 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useState, useRef } from 'react';
+import Image from 'next/image';
+import LandingPage from './components/LandingPage';
+import { useTranslation } from 'react-i18next';
+import I18nProvider from '../components/I18nProvider';
+import LanguageSwitcher from '../components/LanguageSwitcher';
+import LanguagePrompt from '../components/LanguagePrompt';
+
+function HomePage() {
+  const { t } = useTranslation();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [quality, setQuality] = useState<number>(75);
+  const [outputFormat, setOutputFormat] = useState<string>('avif');
+  const [isConverting, setIsConverting] = useState(false);
+  const [error, setError] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      if (selectedFile.size > 4 * 1024 * 1024) {
+        setError(t('errors.fileSize'));
+        return;
+      }
+      if (!selectedFile.type.startsWith('image/')) {
+        setError(t('errors.invalidType'));
+        return;
+      }
+      setSelectedFile(selectedFile);
+      setError('');
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const droppedFile = e.dataTransfer.files[0];
+    if (droppedFile) {
+      if (droppedFile.size > 4 * 1024 * 1024) {
+        setError(t('errors.fileSize'));
+        return;
+      }
+      if (!droppedFile.type.startsWith('image/')) {
+        setError(t('errors.invalidType'));
+        return;
+      }
+      setSelectedFile(droppedFile);
+      setError('');
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  const handleButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleConvert = async () => {
+    if (!selectedFile) {
+      setError(t('errors.noFile'));
+      return;
+    }
+
+    setIsConverting(true);
+    setError('');
+
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      formData.append('quality', quality.toString());
+      formData.append('outputFormat', outputFormat);
+
+      const response = await fetch('/api/convert', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      const baseName = selectedFile.name.replace(/\.[^/.]+$/, '');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${baseName}.${outputFormat}`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t('errors.unknown'));
+    } finally {
+      setIsConverting(false);
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen">
+      <LanguageSwitcher />
+      <LanguagePrompt />
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-center items-center mb-8">
+          <Image
+            src="/logo.webp"
+            alt={t('header.title')}
+            width={200}
+            height={60}
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-6"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              className="hidden"
+              id="file-input"
+            />
+            <div className="text-gray-600">
+              <p className="mb-2">{t('upload.dragDrop')}</p>
+              <button 
+                onClick={handleButtonClick}
+                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                {t('upload.button')}
+              </button>
+              <p className="mt-2 text-sm">
+                {t('upload.supportedFormats')}, {t('upload.maxSize')}
+              </p>
+            </div>
+          </div>
+
+          {selectedFile && (
+            <div className="mb-6">
+              <p className="text-sm text-gray-600">
+                {t('upload.selected')} {selectedFile.name}
+              </p>
+            </div>
+          )}
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">
+              {t('quality.label')}
+            </label>
+            <select
+              value={quality}
+              onChange={(e) => setQuality(Number(e.target.value))}
+              className="w-full p-2 border rounded-lg bg-white/5 border-gray-600"
+            >
+              <option value="90">{t('quality.high')}</option>
+              <option value="75">{t('quality.medium')}</option>
+              <option value="50">{t('quality.low')}</option>
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">
+              {t('format.label')}
+            </label>
+            <select
+              value={outputFormat}
+              onChange={(e) => setOutputFormat(e.target.value)}
+              className="w-full p-2 border rounded-lg bg-white/5 border-gray-600"
+            >
+              <option value="avif">{t('format.avif')}</option>
+              <option value="webp">{t('format.webp')}</option>
+              <option value="jpg">{t('format.jpg')}</option>
+              <option value="png">{t('format.png')}</option>
+            </select>
+          </div>
+
+          {error && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
+              {error}
+            </div>
+          )}
+
+          <button
+            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={handleConvert}
+            disabled={!selectedFile || isConverting}
+          >
+            {isConverting ? t('conversion.processing') : t('conversion.button')}
+          </button>
+        </div>
+      </div>
+
+      <LandingPage />
+    </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <I18nProvider>
+      <HomePage />
+    </I18nProvider>
   );
 }

@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Bild zu AVIF Konverter - Einfaches und effizientes Bildoptimierungstool",
+    "description": "Konvertieren Sie Ihre JPG, PNG und andere Bilder in das AVIF-Format für kleinere Dateien und bessere Qualität. Unterstützt Stapelkonvertierung, völlig kostenlos.",
+    "keywords": "AVIF Konverter, Bildkomprimierung, Bildoptimierung, WebP zu AVIF, JPG zu AVIF, PNG zu AVIF, Online-Konverter"
+  },
+  "header": {
+    "title": "Bild zu AVIF Konverter",
+    "subtitle": "Kostenloses Online-Bildkonvertierungstool"
+  },
+  "upload": {
+    "dragDrop": "Bilder hierher ziehen oder",
+    "button": "Datei auswählen",
+    "supportedFormats": "Unterstützt JPG, PNG, WebP, GIF, TIFF, BMP Formate",
+    "maxSize": "Maximal 4MB",
+    "selected": "Ausgewählt: "
+  },
+  "quality": {
+    "label": "Qualitätsstufe wählen",
+    "high": "Hohe Qualität",
+    "medium": "Mittlere Qualität",
+    "low": "Niedrige Qualität"
+  },
+  "format": {
+    "label": "Ausgabeformat wählen",
+    "avif": "AVIF (Beste Komprimierung)",
+    "jpeg": "JPEG (Weit kompatibel)",
+    "png": "PNG (Verlustfreie Qualität)",
+    "webp": "WebP (Ausgewogene Wahl)"
+  },
+  "conversion": {
+    "button": "Konvertierung starten",
+    "processing": "Konvertierung läuft...",
+    "download": "Konvertierte Datei herunterladen",
+    "error": "Konvertierung fehlgeschlagen, bitte versuchen Sie es erneut"
+  },
+  "errors": {
+    "noFile": "Bitte wählen Sie ein Bild zum Konvertieren",
+    "fileSize": "Dateigröße darf 4MB nicht überschreiten",
+    "invalidType": "Bitte wählen Sie eine Bilddatei",
+    "unknown": "Konvertierung fehlgeschlagen, bitte versuchen Sie es später erneut"
+  },
+  "features": {
+    "title": "Warum AVIF-Format wählen?",
+    "compression": {
+      "title": "Überlegene Komprimierung",
+      "description": "30-50% kleiner als herkömmliche JPEG und PNG, sogar 10-20% kleiner als WebP"
+    },
+    "quality": {
+      "title": "Ausgezeichnete Bildqualität",
+      "description": "Behält scharfe Details und echte Farben auch bei hoher Komprimierung"
+    },
+    "speed": {
+      "title": "Schnellere Websites",
+      "description": "Kleinere Dateien bedeuten schnellere Ladezeiten und bessere Benutzererfahrung"
+    },
+    "data": {
+      "title": "Bandbreite sparen",
+      "description": "Perfekt für mobile Nutzer und Gebiete mit eingeschränkter Internetverbindung"
+    },
+    "seo": {
+      "title": "SEO-Vorteile",
+      "description": "Schneller ladende Bilder helfen bei der Verbesserung des Suchmaschinenrankings"
+    },
+    "compatibility": {
+      "title": "Breite Kompatibilität",
+      "description": "Wachsende Browser-Unterstützung mit automatischen Fallback-Optionen"
+    }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "items": [
+      {
+        "question": "Was ist das AVIF-Format?",
+        "answer": "AVIF ist ein Bildformat der nächsten Generation, das auf der AV1-Videocodec-Technologie basiert und von der Alliance for Open Media entwickelt wurde. Es bietet überlegene Komprimierungseffizienz und Bildqualität und ist damit ein idealer Ersatz für JPEG, PNG und WebP."
+      },
+      {
+        "question": "Welche Browser unterstützen AVIF?",
+        "answer": "AVIF wird von den wichtigsten Browsern wie Chrome, Firefox, Opera und Edge unterstützt. Für nicht unterstützte Browser stellen wir automatisch WebP- oder JPEG-Alternativen bereit."
+      },
+      {
+        "question": "Wie ist die Bildqualität nach der Konvertierung?",
+        "answer": "AVIF verwendet fortschrittliche Komprimierungsalgorithmen, um auch bei hohen Komprimierungsraten eine ausgezeichnete Bildqualität zu erhalten. Sie können die Qualitätseinstellungen anpassen, um Dateigröße und Bildqualität auszubalancieren."
+      }
+    ]
+  },
+  "footer": {
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutz",
+    "copyright": "© 2024 AVIF-Konverter. Alle Rechte vorbehalten."
+  }
+} 

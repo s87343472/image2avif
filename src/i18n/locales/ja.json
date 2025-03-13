@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "画像をAVIFに変換 - シンプルで効率的な画像最適化ツール",
+    "description": "JPG、PNGなどの画像をAVIF形式に変換し、ファイルサイズを小さく、品質を向上させます。バッチ変換対応、完全無料です。",
+    "keywords": "AVIF変換, 画像圧縮, 画像最適化, WebPからAVIF, JPGからAVIF, PNGからAVIF, オンライン変換"
+  },
+  "header": {
+    "title": "画像をAVIFに変換",
+    "subtitle": "無料オンライン画像変換ツール"
+  },
+  "upload": {
+    "dragDrop": "ここに画像をドラッグ＆ドロップ、または",
+    "button": "ファイルを選択",
+    "supportedFormats": "JPG、PNG、WebP、GIF、TIFF、BMP形式に対応",
+    "maxSize": "最大4MB",
+    "selected": "選択済み："
+  },
+  "quality": {
+    "label": "品質レベルを選択",
+    "high": "高品質",
+    "medium": "中品質",
+    "low": "低品質"
+  },
+  "format": {
+    "label": "出力形式を選択",
+    "avif": "AVIF（最高の圧縮）",
+    "jpeg": "JPEG（広く互換性あり）",
+    "png": "PNG（ロスレス品質）",
+    "webp": "WebP（バランスの取れた選択）"
+  },
+  "conversion": {
+    "button": "変換開始",
+    "processing": "変換中...",
+    "download": "変換したファイルをダウンロード",
+    "error": "変換に失敗しました。もう一度お試しください"
+  },
+  "errors": {
+    "noFile": "変換する画像を選択してください",
+    "fileSize": "ファイルサイズは4MBを超えることはできません",
+    "invalidType": "画像ファイルを選択してください",
+    "unknown": "変換に失敗しました。後でもう一度お試しください"
+  },
+  "features": {
+    "title": "なぜAVIF形式を選ぶのか？",
+    "compression": {
+      "title": "優れた圧縮率",
+      "description": "従来のJPEGやPNGより30-50%小さく、WebPよりも10-20%小さい"
+    },
+    "quality": {
+      "title": "優れた画質",
+      "description": "高圧縮率でも、鮮明なディテールと本来の色を維持"
+    },
+    "speed": {
+      "title": "高速なウェブサイト",
+      "description": "小さなファイルサイズで読み込み時間を短縮し、ユーザー体験を向上"
+    },
+    "data": {
+      "title": "通信量の節約",
+      "description": "モバイルユーザーや通信環境が制限された地域に最適"
+    },
+    "seo": {
+      "title": "SEOメリット",
+      "description": "画像の高速読み込みで検索エンジンランキングの向上に貢献"
+    },
+    "compatibility": {
+      "title": "幅広い互換性",
+      "description": "ブラウザのサポートが拡大中、自動フォールバックオプション付き"
+    }
+  },
+  "faq": {
+    "title": "よくある質問",
+    "items": [
+      {
+        "question": "AVIF形式とは？",
+        "answer": "AVIFは、Alliance for Open Mediaが開発したAV1ビデオコーデック技術をベースにした次世代画像フォーマットです。優れた圧縮効率と画質を提供し、JPEG、PNG、WebPの理想的な代替となります。"
+      },
+      {
+        "question": "どのブラウザがAVIFをサポートしていますか？",
+        "answer": "Chrome、Firefox、Opera、Edgeなどの主要ブラウザがAVIFをサポートしています。サポートされていないブラウザには、自動的にWebPまたはJPEGを提供します。"
+      },
+      {
+        "question": "変換後の画質はどうですか？",
+        "answer": "AVIFは高度な圧縮アルゴリズムを使用し、高圧縮率でも優れた画質を維持します。品質設定を調整して、ファイルサイズと画質のバランスを取ることができます。"
+      }
+    ]
+  },
+  "footer": {
+    "about": "当サイトについて",
+    "contact": "お問い合わせ",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "copyright": "© 2024 AVIF変換ツール. All rights reserved."
+  }
+} 

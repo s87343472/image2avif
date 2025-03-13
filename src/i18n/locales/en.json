@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "Image to AVIF Converter - Simple and Efficient Image Optimization Tool",
+    "description": "Convert your JPG, PNG and other images to AVIF format for smaller file sizes and better quality. Supports batch conversion, completely free. Perfect for website optimization, mobile apps, and e-commerce platforms.",
+    "keywords": "AVIF converter, image compression, image optimization, WebP to AVIF, JPG to AVIF, PNG to AVIF, online conversion tool"
+  },
+  "header": {
+    "title": "Image to AVIF Converter",
+    "subtitle": "Free Online Image Conversion Tool"
+  },
+  "upload": {
+    "dragDrop": "Drag and drop images here, or",
+    "button": "Choose File",
+    "supportedFormats": "Supports JPG, PNG, WebP, GIF, TIFF, BMP formats",
+    "maxSize": "Max 4MB",
+    "selected": "Selected: "
+  },
+  "quality": {
+    "label": "Select Quality Level",
+    "high": "High Quality",
+    "medium": "Medium Quality",
+    "low": "Low Quality"
+  },
+  "format": {
+    "label": "Select Output Format",
+    "avif": "AVIF (Best Compression)",
+    "webp": "WebP (Balanced Choice)",
+    "jpg": "JPEG (Widely Compatible)",
+    "png": "PNG (Lossless Quality)"
+  },
+  "conversion": {
+    "button": "Start Conversion",
+    "processing": "Converting...",
+    "download": "Download Converted File",
+    "error": "Conversion failed, please try again"
+  },
+  "errors": {
+    "noFile": "Please select an image to convert",
+    "fileSize": "File size cannot exceed 4MB",
+    "invalidType": "Please select an image file",
+    "unknown": "Conversion failed, please try again later"
+  },
+  "howTo": {
+    "title": "How It Works",
+    "step1": {
+      "title": "Upload Image",
+      "description": "Drag and drop or select your JPG or PNG image"
+    },
+    "step2": {
+      "title": "Configure Options",
+      "description": "Choose your desired quality level and other settings"
+    },
+    "step3": {
+      "title": "Download AVIF",
+      "description": "Get your converted AVIF image and use it on your website"
+    }
+  },
+  "features": {
+    "title": "Why Choose AVIF Format?",
+    "compression": {
+      "title": "Superior Compression",
+      "description": "30-50% smaller than traditional JPEG and PNG, even 10-20% smaller than WebP"
+    },
+    "quality": {
+      "title": "Excellent Image Quality",
+      "description": "Maintains crisp details and true colors even at high compression rates"
+    },
+    "speed": {
+      "title": "Faster Website Speed",
+      "description": "Smaller file sizes mean faster loading times and better user experience"
+    },
+    "data": {
+      "title": "Save Data Usage",
+      "description": "Mobile users will appreciate reduced data usage, especially in areas with limited connectivity"
+    },
+    "seo": {
+      "title": "SEO Benefits",
+      "description": "Website speed is a key ranking factor, faster image loading helps improve rankings"
+    },
+    "compatibility": {
+      "title": "Wide Compatibility",
+      "description": "Major browsers increasingly support AVIF format, our tool makes it easy to provide fallbacks"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What is AVIF format?",
+        "answer": "AVIF is a next-generation image format based on AV1 video codec technology, developed by the Alliance for Open Media. It offers superior compression efficiency and image quality, making it an ideal alternative to JPEG, PNG, and WebP."
+      },
+      {
+        "question": "Which browsers support AVIF?",
+        "answer": "Currently Chrome, Firefox, Opera, and Edge support the AVIF format. For unsupported browsers, we automatically provide WebP or JPEG formats as fallbacks."
+      },
+      {
+        "question": "How's the image quality after conversion?",
+        "answer": "AVIF uses advanced compression algorithms to maintain excellent image quality even at high compression rates. You can use the quality settings to balance file size and image quality."
+      }
+    ]
+  },
+  "footer": {
+    "about": "About Us",
+    "contact": "Contact",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2024 AVIF Converter. All rights reserved.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "blog": "Blog",
+    "tutorials": "Tutorials",
+    "api": "API Docs"
+  }
+} 

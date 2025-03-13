@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "图片转AVIF格式 - 简单高效的图片优化工具",
+    "description": "将您的JPG、PNG等图片轻松转换为AVIF格式，获得更小的文件体积和更好的图像质量。支持批量转换，完全免费。适用于网站优化、移动应用和电商平台。",
+    "keywords": "AVIF转换器, 图片压缩, 图片优化, WebP转AVIF, JPG转AVIF, PNG转AVIF, 在线转换工具"
+  },
+  "header": {
+    "title": "图片转AVIF格式",
+    "subtitle": "免费在线图片转换工具"
+  },
+  "upload": {
+    "dragDrop": "拖放图片到这里，或者",
+    "button": "选择文件",
+    "supportedFormats": "支持JPG、PNG、WebP、GIF、TIFF、BMP格式",
+    "maxSize": "最大4MB",
+    "selected": "已选择："
+  },
+  "quality": {
+    "label": "选择质量级别",
+    "high": "高质量",
+    "medium": "中等质量",
+    "low": "低质量"
+  },
+  "format": {
+    "label": "选择输出格式",
+    "avif": "AVIF（最佳压缩）",
+    "webp": "WebP（平衡选择）",
+    "jpg": "JPEG（广泛兼容）",
+    "png": "PNG（无损质量）"
+  },
+  "conversion": {
+    "button": "开始转换",
+    "processing": "转换中...",
+    "download": "下载转换后的文件",
+    "error": "转换失败，请稍后重试"
+  },
+  "errors": {
+    "noFile": "请选择要转换的图片",
+    "fileSize": "文件大小不能超过4MB",
+    "invalidType": "请选择图片文件",
+    "unknown": "转换失败，请稍后重试"
+  },
+  "howTo": {
+    "title": "使用方法",
+    "step1": {
+      "title": "上传图片",
+      "description": "拖放或选择您要转换的JPG或PNG图片"
+    },
+    "step2": {
+      "title": "设置选项",
+      "description": "选择您需要的质量级别和其他设置"
+    },
+    "step3": {
+      "title": "下载AVIF",
+      "description": "获取转换后的AVIF图片并在您的网站上使用"
+    }
+  },
+  "features": {
+    "title": "为什么选择AVIF格式？",
+    "compression": {
+      "title": "超高压缩率",
+      "description": "比传统JPEG和PNG小30-50%，甚至比WebP格式还要小10-20%"
+    },
+    "quality": {
+      "title": "出色的图像质量",
+      "description": "即使在高压缩率下，AVIF仍然保持清晰细节和真实色彩"
+    },
+    "speed": {
+      "title": "加快网站速度",
+      "description": "更小的文件体积意味着更快的加载时间和更好的用户体验"
+    },
+    "data": {
+      "title": "节省流量",
+      "description": "移动用户将感谢您减少数据使用，特别是在网络连接受限的地区"
+    },
+    "seo": {
+      "title": "SEO优势",
+      "description": "网站速度是搜索引擎排名的重要因素，更快的图片加载有助于提升排名"
+    },
+    "compatibility": {
+      "title": "广泛兼容性",
+      "description": "主流浏览器越来越多地支持AVIF格式，使用我们的工具可以轻松提供后备选项"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "items": [
+      {
+        "question": "什么是AVIF格式？",
+        "answer": "AVIF是基于AV1视频编码技术的新一代图像格式，由开放媒体联盟（Alliance for Open Media）开发。它提供了卓越的压缩效率和图像质量，是JPEG、PNG和WebP的理想替代品。"
+      },
+      {
+        "question": "哪些浏览器支持AVIF？",
+        "answer": "目前Chrome、Firefox、Opera和Edge等主流浏览器都支持AVIF格式。对于不支持的浏览器，我们会自动提供WebP或JPEG格式作为备选。"
+      },
+      {
+        "question": "转换后的图片质量如何？",
+        "answer": "AVIF使用先进的压缩算法，即使在高压缩率下也能保持优秀的图像质量。您可以通过质量设置来平衡文件大小和图像质量。"
+      }
+    ]
+  },
+  "footer": {
+    "about": "关于我们",
+    "contact": "联系我们",
+    "terms": "使用条款",
+    "privacy": "隐私政策",
+    "copyright": "© 2024 AVIF转换器。保留所有权利。",
+    "quickLinks": "快速链接",
+    "resources": "资源",
+    "blog": "博客",
+    "tutorials": "教程",
+    "api": "API文档"
+  }
+} 

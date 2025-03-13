@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /en
+Allow: /zh
+Allow: /ja
+Allow: /fr
+Allow: /de
+Allow: /ru
+
+Sitemap: https://image2avif.metric-converter.com/sitemap.xml 

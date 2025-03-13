@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Convertisseur d'images en AVIF - Outil d'optimisation simple et efficace",
+    "description": "Convertissez vos images JPG, PNG et autres au format AVIF pour des fichiers plus légers et une meilleure qualité. Conversion par lots prise en charge, totalement gratuit.",
+    "keywords": "convertisseur AVIF, compression d'image, optimisation d'image, WebP vers AVIF, JPG vers AVIF, PNG vers AVIF, convertisseur en ligne"
+  },
+  "header": {
+    "title": "Convertisseur d'images en AVIF",
+    "subtitle": "Outil de conversion d'images gratuit en ligne"
+  },
+  "upload": {
+    "dragDrop": "Glissez et déposez des images ici, ou",
+    "button": "Choisir un fichier",
+    "supportedFormats": "Formats supportés : JPG, PNG, WebP, GIF, TIFF, BMP",
+    "maxSize": "Maximum 4 Mo",
+    "selected": "Sélectionné : "
+  },
+  "quality": {
+    "label": "Sélectionner le niveau de qualité",
+    "high": "Haute qualité",
+    "medium": "Qualité moyenne",
+    "low": "Basse qualité"
+  },
+  "format": {
+    "label": "Sélectionner le format de sortie",
+    "avif": "AVIF (Meilleure compression)",
+    "jpeg": "JPEG (Largement compatible)",
+    "png": "PNG (Qualité sans perte)",
+    "webp": "WebP (Choix équilibré)"
+  },
+  "conversion": {
+    "button": "Démarrer la conversion",
+    "processing": "Conversion en cours...",
+    "download": "Télécharger le fichier converti",
+    "error": "La conversion a échoué, veuillez réessayer"
+  },
+  "errors": {
+    "noFile": "Veuillez sélectionner une image à convertir",
+    "fileSize": "La taille du fichier ne peut pas dépasser 4 Mo",
+    "invalidType": "Veuillez sélectionner un fichier image",
+    "unknown": "La conversion a échoué, veuillez réessayer plus tard"
+  },
+  "features": {
+    "title": "Pourquoi choisir le format AVIF ?",
+    "compression": {
+      "title": "Compression supérieure",
+      "description": "30-50% plus petit que les JPEG et PNG traditionnels, même 10-20% plus petit que WebP"
+    },
+    "quality": {
+      "title": "Excellente qualité d'image",
+      "description": "Maintient les détails nets et les couleurs fidèles même avec un taux de compression élevé"
+    },
+    "speed": {
+      "title": "Sites Web Plus Rapides",
+      "description": "Des fichiers plus légers signifient des temps de chargement plus rapides et une meilleure expérience utilisateur"
+    },
+    "data": {
+      "title": "Économie de Bande Passante",
+      "description": "Parfait pour les utilisateurs mobiles et les zones à connectivité limitée"
+    },
+    "seo": {
+      "title": "Avantages SEO",
+      "description": "Des images plus rapides à charger aident à améliorer le classement dans les moteurs de recherche"
+    },
+    "compatibility": {
+      "title": "Large Compatibilité",
+      "description": "Support croissant des navigateurs avec options de repli automatique"
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "items": [
+      {
+        "question": "Qu'est-ce que le format AVIF ?",
+        "answer": "AVIF est un format d'image de nouvelle génération basé sur la technologie du codec vidéo AV1, développé par l'Alliance for Open Media. Il offre une efficacité de compression et une qualité d'image supérieures, ce qui en fait un remplaçant idéal pour JPEG, PNG et WebP."
+      },
+      {
+        "question": "Quels navigateurs supportent AVIF ?",
+        "answer": "AVIF est supporté par les principaux navigateurs dont Chrome, Firefox, Opera et Edge. Pour les navigateurs non supportés, nous fournissons automatiquement des versions WebP ou JPEG."
+      },
+      {
+        "question": "Quelle est la qualité d'image après conversion ?",
+        "answer": "AVIF utilise des algorithmes de compression avancés pour maintenir une excellente qualité d'image même avec des taux de compression élevés. Vous pouvez ajuster les paramètres de qualité pour équilibrer la taille du fichier et la qualité de l'image."
+      }
+    ]
+  },
+  "footer": {
+    "about": "À Propos",
+    "contact": "Contact",
+    "terms": "Conditions d'Utilisation",
+    "privacy": "Politique de Confidentialité",
+    "copyright": "© 2024 Convertisseur AVIF. Tous droits réservés."
+  }
+} 

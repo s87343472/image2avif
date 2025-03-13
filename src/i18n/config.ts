@@ -1,23 +1,21 @@
-import { createI18nClient } from 'next-international/client';
-import { createI18nServer } from 'next-international/server';
+import {getRequestConfig} from 'next-intl/server';
+import {notFound} from 'next/navigation';
 
 export const locales = ['zh', 'en', 'fr', 'de', 'ja', 'ru'] as const;
-export type Locale = typeof locales[number];
+export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'zh';
+export const defaultLocale = 'zh';
 
-export const getI18nClient = createI18nClient({
-  locales,
-  defaultLocale,
-  fallbackLocale: defaultLocale,
-  loadLocale: async (locale: Locale) => (await import(`./locales/${locale}.json`)).default,
-});
+// This is the configuration for next-intl
+export default getRequestConfig(async ({locale}) => {
+  // Validate that the incoming locale is valid
+  if (typeof locale !== 'string' || !locales.includes(locale as Locale)) {
+    notFound();
+  }
 
-export const getI18nServer = createI18nServer({
-  locales,
-  defaultLocale,
-  fallbackLocale: defaultLocale,
-  loadLocale: async (locale: Locale) => (await import(`./locales/${locale}.json`)).default,
+  return {
+    messages: (await import(`./locales/${locale}.json`)).default
+  };
 });
 
 export const languageNames: Record<Locale, string> = {

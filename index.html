@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像转换工具</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            background-color: #f0f8ff;
+        }
+        
+        .upload-area.active {
+            border-color: #2ecc71;
+            background-color: #eafaf1;
+        }
+        
+        .upload-area p {
+            margin: 0;
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+        
+        .upload-area i {
+            font-size: 48px;
+            color: #3498db;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .options {
+            margin-bottom: 20px;
+        }
+        
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .options select, .options input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .convert-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .convert-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .convert-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .result {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .result img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #3498db;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .language-selector {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .language-selector select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <select id="language-select">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    
+    <h1 id="title">图像转换工具</h1>
+    
+    <div class="container">
+        <div class="upload-area" id="upload-area">
+            <i>📁</i>
+            <p id="upload-text">点击或拖放图像文件到这里</p>
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+        </div>
+        
+        <div class="options">
+            <label id="format-label" for="format-select">输出格式:</label>
+            <select id="format-select">
+                <option value="avif">AVIF</option>
+                <option value="webp">WebP</option>
+                <option value="jpeg">JPEG</option>
+                <option value="png">PNG</option>
+            </select>
+            
+            <label id="quality-label" for="quality-input">质量 (1-100):</label>
+            <input type="number" id="quality-input" min="1" max="100" value="80">
+        </div>
+        
+        <button id="convert-btn" class="convert-btn" disabled>转换</button>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p id="loading-text">正在处理...</p>
+        </div>
+        
+        <div class="error" id="error"></div>
+    </div>
+    
+    <div class="container result" id="result">
+        <h2 id="result-title">转换结果</h2>
+        <img id="result-image" src="" alt="转换后的图像">
+        <a id="download-link" href="#" download="converted-image">
+            <button class="download-btn" id="download-btn">下载</button>
+        </a>
+    </div>
+    
+    <footer>
+        <p>© 2023 图像转换工具 | <a href="https://github.com/yourusername/image-converter" target="_blank">GitHub</a></p>
+    </footer>
+    
+    <script>
+        // 语言翻译
+        const translations = {
+            zh: {
+                title: "图像转换工具",
+                uploadText: "点击或拖放图像文件到这里",
+                formatLabel: "输出格式:",
+                qualityLabel: "质量 (1-100):",
+                convertBtn: "转换",
+                loadingText: "正在处理...",
+                resultTitle: "转换结果",
+                downloadBtn: "下载",
+                errorNoFile: "请先选择一个图像文件",
+                errorConversion: "转换过程中出错",
+                errorBrowser: "您的浏览器不支持此功能"
+            },
+            en: {
+                title: "Image Converter",
+                uploadText: "Click or drag image files here",
+                formatLabel: "Output Format:",
+                qualityLabel: "Quality (1-100):",
+                convertBtn: "Convert",
+                loadingText: "Processing...",
+                resultTitle: "Conversion Result",
+                downloadBtn: "Download",
+                errorNoFile: "Please select an image file first",
+                errorConversion: "Error during conversion",
+                errorBrowser: "Your browser does not support this feature"
+            }
+        };
+        
+        // 当前语言
+        let currentLang = 'zh';
+        
+        // 更新UI文本
+        function updateUIText() {
+            document.getElementById('title').textContent = translations[currentLang].title;
+            document.getElementById('upload-text').textContent = translations[currentLang].uploadText;
+            document.getElementById('format-label').textContent = translations[currentLang].formatLabel;
+            document.getElementById('quality-label').textContent = translations[currentLang].qualityLabel;
+            document.getElementById('convert-btn').textContent = translations[currentLang].convertBtn;
+            document.getElementById('loading-text').textContent = translations[currentLang].loadingText;
+            document.getElementById('result-title').textContent = translations[currentLang].resultTitle;
+            document.getElementById('download-btn').textContent = translations[currentLang].downloadBtn;
+        }
+        
+        // 语言选择器事件
+        document.getElementById('language-select').addEventListener('change', function() {
+            currentLang = this.value;
+            updateUIText();
+        });
+        
+        // 初始化UI文本
+        updateUIText();
+        
+        // 文件上传区域
+        const uploadArea = document.getElementById('upload-area');
+        const fileInput = document.getElementById('file-input');
+        const convertBtn = document.getElementById('convert-btn');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const result = document.getElementById('result');
+        const resultImage = document.getElementById('result-image');
+        const downloadLink = document.getElementById('download-link');
+        
+        let selectedFile = null;
+        
+        // 上传区域点击事件
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        // 文件拖放事件
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('active');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('active');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('active');
+            
+            if (e.dataTransfer.files.length) {
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+        
+        // 文件选择事件
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) {
+                handleFile(fileInput.files[0]);
+            }
+        });
+        
+        // 处理选择的文件
+        function handleFile(file) {
+            if (!file.type.startsWith('image/')) {
+                showError(translations[currentLang].errorNoFile);
+                return;
+            }
+            
+            selectedFile = file;
+            document.getElementById('upload-text').textContent = file.name;
+            convertBtn.disabled = false;
+            hideError();
+            result.style.display = 'none';
+        }
+        
+        // 转换按钮点击事件
+        convertBtn.addEventListener('click', async () => {
+            if (!selectedFile) {
+                showError(translations[currentLang].errorNoFile);
+                return;
+            }
+            
+            const format = document.getElementById('format-select').value;
+            const quality = parseInt(document.getElementById('quality-input').value) / 100;
+            
+            showLoading();
+            hideError();
+            
+            try {
+                const convertedImage = await convertImage(selectedFile, format, quality);
+                showResult(convertedImage, format);
+            } catch (err) {
+                console.error(err);
+                showError(translations[currentLang].errorConversion);
+            } finally {
+                hideLoading();
+            }
+        });
+        
+        // 图像转换函数
+        async function convertImage(file, format, quality) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = new Image();
+                    
+                    img.onload = function() {
+                        try {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+                            
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            
+                            ctx.drawImage(img, 0, 0);
+                            
+                            let mimeType;
+                            switch (format) {
+                                case 'avif':
+                                    mimeType = 'image/avif';
+                                    break;
+                                case 'webp':
+                                    mimeType = 'image/webp';
+                                    break;
+                                case 'jpeg':
+                                    mimeType = 'image/jpeg';
+                                    break;
+                                case 'png':
+                                    mimeType = 'image/png';
+                                    break;
+                                default:
+                                    mimeType = 'image/jpeg';
+                            }
+                            
+                            // 检查浏览器是否支持该格式
+                            if (format === 'avif' && !canvas.toDataURL('image/avif').startsWith('data:image/avif')) {
+                                reject(new Error(translations[currentLang].errorBrowser));
+                                return;
+                            }
+                            
+                            if (format === 'webp' && !canvas.toDataURL('image/webp').startsWith('data:image/webp')) {
+                                reject(new Error(translations[currentLang].errorBrowser));
+                                return;
+                            }
+                            
+                            const dataUrl = canvas.toDataURL(mimeType, quality);
+                            resolve(dataUrl);
+                        } catch (err) {
+                            reject(err);
+                        }
+                    };
+                    
+                    img.onerror = function() {
+                        reject(new Error(translations[currentLang].errorConversion));
+                    };
+                    
+                    img.src = e.target.result;
+                };
+                
+                reader.onerror = function() {
+                    reject(new Error(translations[currentLang].errorConversion));
+                };
+                
+                reader.readAsDataURL(file);
+            });
+        }
+        
+        // 显示结果
+        function showResult(dataUrl, format) {
+            resultImage.src = dataUrl;
+            downloadLink.href = dataUrl;
+            downloadLink.download = `converted-image.${format}`;
+            result.style.display = 'block';
+        }
+        
+        // 显示加载中
+        function showLoading() {
+            loading.style.display = 'block';
+            convertBtn.disabled = true;
+        }
+        
+        // 隐藏加载中
+        function hideLoading() {
+            loading.style.display = 'none';
+            convertBtn.disabled = false;
+        }
+        
+        // 显示错误
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+        }
+        
+        // 隐藏错误
+        function hideError() {
+            error.style.display = 'none';
+        }
+    </script>
+</body>
+</html> 

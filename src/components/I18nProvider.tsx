@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import i18n from '../i18n';
 import { I18nextProvider } from 'react-i18next';
+import i18n, { getI18n } from '../i18n';
 import { useParams } from 'next/navigation';
-import { defaultLocale } from '../i18n/request';
 
 export default function I18nProvider({
   children,
@@ -12,15 +11,18 @@ export default function I18nProvider({
   children: React.ReactNode;
 }) {
   const params = useParams();
-  const locale = (params?.locale as string) || defaultLocale;
+  const locale = params?.locale || 'en';
 
   useEffect(() => {
-    if (!i18n.isInitialized) {
-      i18n.init({
-        lng: locale
-      });
-    } else if (i18n.language !== locale) {
-      i18n.changeLanguage(locale);
+    // 确保只在客户端执行
+    if (typeof window !== 'undefined') {
+      // 初始化i18n
+      const i18nInstance = getI18n();
+      
+      // 如果当前语言与URL中的语言不同，则切换语言
+      if (i18nInstance.language !== locale) {
+        i18nInstance.changeLanguage(locale as string);
+      }
     }
   }, [locale]);
 

@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import '../i18n';
+import i18n from '../i18n';
+import { I18nextProvider } from 'react-i18next';
 
 export default function I18nProvider({
   children,
@@ -9,8 +10,11 @@ export default function I18nProvider({
   children: React.ReactNode;
 }) {
   useEffect(() => {
-    // 这里可以添加任何需要在客户端初始化的i18n逻辑
+    // 确保i18n已经初始化
+    if (!i18n.isInitialized) {
+      i18n.init();
+    }
   }, []);
 
-  return <>{children}</>;
+  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 } 
